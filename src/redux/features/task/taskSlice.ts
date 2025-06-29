@@ -19,10 +19,18 @@ const initialState: InitialState = {
         {
             id: '456',
             title: 'Create Github Repo',
-            description: 'Create Home page, and Routing',
-            dueDate: '2024-05-24',
+            description: 'Create stage branch',
+            dueDate: '2021-09-25',
             isCompleted: false,
-            priority: 'High'
+            priority: 'Medium'
+        },
+        {
+            id: '789',
+            title: 'Create Redux App',
+            description: 'This is a Todo App using Redux',
+            dueDate: '2023-03-13',
+            isCompleted: true,
+            priority: 'Low'
         }
     ]
 };
