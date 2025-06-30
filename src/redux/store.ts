@@ -6,7 +6,8 @@ export const store = configureStore({
     reducer: {
         counter: counterReducer,
         todo: taskReducer
-    }
+    },
+    devTools: true
 });
 
 export type RootState = ReturnType<typeof store.getState>;
