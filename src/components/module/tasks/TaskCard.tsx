@@ -26,7 +26,7 @@ const TaskCard = ({ task }: IProps) => {
                     <h1 className={cn({ 'line-through': task.isCompleted })}>{task.title}</h1>
                 </div>
                 <div className='flex gap-3 items-center'>
-                    <Button onClick={() => deleteTask(task.id)} variant='link' className='p-0 text-rose-500 cursor-pointer'>
+                    <Button onClick={() => dispatch(deleteTask(task.id))} variant='link' className='p-0 text-rose-500 cursor-pointer'>
                         <Trash2 />
                     </Button>
                     <Checkbox checked={task.isCompleted} onClick={() => dispatch(toggleCompleteState(task.id))} />

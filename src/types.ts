@@ -6,3 +6,8 @@ export interface ITask {
     isCompleted: boolean,
     priority: 'High' | 'Medium' | 'Low';
 }
+
+export interface IUser {
+    name: string;
+    id: string;
+}
