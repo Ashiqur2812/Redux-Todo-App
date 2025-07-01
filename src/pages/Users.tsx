@@ -8,14 +8,12 @@ const Users = () => {
     console.log(users);
 
     return (
-        <div className="max-w-7xl mx-auto my-3">
-            <div className="py-2">
+        <div className="max-w-7xl mx-auto mt-20">
+            <div className="flex justify-end">
                 <AddUserModal />
             </div>
-            <div className="grid grid-cols-3 gap-2 py-2">
-                {
-                    users.map((user) => <UserCard user={user} key={user.id} />)
-                }
+            <div className="grid grid-cols-3 gap-5 mt-5">
+                {users.map((user) => <UserCard user={user} key={user.id} />)}
             </div>
         </div>
     );
