@@ -12,14 +12,15 @@ const initialState: InitialState = {
     filter: 'all'
 };
 
-type DraftTask = Pick<ITask, 'title' | 'description' | 'dueDate' | 'priority'>;
+type DraftTask = Pick<ITask, 'title' | 'description' | 'dueDate' | 'priority' | 'assignTo'>;
 
 type UpdateTaskPayload = {
     id: string,
     title?: string,
     description?: string,
     dueDate?: string,
-    priority?: 'High' | 'Medium' | 'Low';
+    priority?: 'High' | 'Medium' | 'Low',
+    assignTo?: string | null;
 };
 
 const createTask = (taskData: DraftTask): ITask => {
