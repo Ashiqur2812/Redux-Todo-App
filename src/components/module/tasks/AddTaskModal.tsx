@@ -7,6 +7,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+import { useCreateTaskMutation } from "@/redux/api/baseApi";
 import { addTask } from "@/redux/features/task/taskSlice";
 import { selectUser } from "@/redux/features/user/userSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
@@ -16,17 +17,32 @@ import { CalendarIcon } from "lucide-react";
 import { useState } from "react";
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 
+
+
 export function AddTaskModal() {
     const [open, setOpen] = useState(false);
     const users = useAppSelector(selectUser);
     const form = useForm();
     const dispatch = useAppDispatch();
 
-    const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    const [createTask, { data }] = useCreateTaskMutation();
+
+    console.log(data);
+
+    const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+        const taskData = {
+            ...data,
+            isCompleted: false
+        };
+
+        const res = await createTask(taskData).unwrap();
+        console.log('Inside submit function', res);
+
         dispatch(addTask(data as ITask));
         setOpen(false);
         form.reset();
     };
+
 
     return (
         <Dialog open={open} onOpenChange={setOpen}>
