@@ -27,6 +27,7 @@ const TaskCard = ({ task }: IProps) => {
                     })}>
                     </div>
                     <h1 className={cn({ 'line-through': task.isCompleted })}>{task.title}</h1>
+                    {/* <h1>{task.title}</h1> */}
                 </div>
                 <div className='flex gap-3 items-center'>
                     <Button onClick={() => dispatch(deleteTask(task.id))} variant='link' className='p-0 text-rose-500 cursor-pointer'>
